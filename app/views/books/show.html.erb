@@ -1,0 +1,12 @@
+<%if flash[:notice]%>
+  <p class = "notice"><%=flash[:notice] %></p>
+<%elsif flash[:error]%>
+  <p class="error"><%=flash[:error] %></p>
+<%end%>
+<p>Title:<%=@book.title%></p>
+<p>Body:<%=@book.body%></p>
+<div class="page_transition">
+    <%=link_to "Edit",edit_book_path(@book.id)%>
+    <div>|</div>
+    <%=link_to "Back",books_path%>
+</div>    

@@ -13,3 +13,43 @@
  *= require_tree .
  *= require_self
  */
+.page_transition{ 
+    display:flex;
+}
+.ml-5{
+    margin-left:5%;
+}
+.my-1{
+    margin:1% 0;
+}
+.d-inline-grid{
+    display:inline-grid;
+}
+.cl-black{
+    color:black;
+}
+.notice{
+    color:green;
+}
+.error{
+    color:red;
+    &__explanation{
+        background-color:red;
+        color:white;
+    }
+    &__list{
+         background-color:gray;
+         color:black;
+    }
+}
+.bg-red{
+    background-color:red;
+}
+.book{
+    &__title{
+        border:2px solid red;
+    }
+    &__body{
+        border:2px solid red;
+    }
+}

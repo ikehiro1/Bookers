@@ -1,0 +1,55 @@
+<%if flash[:notice]%>
+  <p class = "notice"><%=flash[:notice] %></p>
+<%elsif flash[:error]%>
+  <p class="error"><%=flash[:error] %></p>
+<%end%>
+<%if @book.errors.any?%>
+     <div class="error__explanation">
+         <h2><%= pluralize(@book.errors.count,"error")%> prohibited this book from being saved:</h2>
+       <ul class="error__list">
+         <% @book.errors.full_messages.each do |message|%>
+            <li><%=message%></li>
+         <% end %>
+       </ul>
+     </div>
+     <h2>Editing book</h2>
+     <%=form_with model: @book do |form| %>
+    
+      <div class="field">
+        <label class="bg-red"for="book__title">Title</label><br>
+       <%=form.text_field :title,class:"book__title"%>
+      </div>
+    
+      <div class="field">
+        <label class="bg-red"for="book__body">Body</label><br>
+       <%=form.text_area :body,class:"book__body"%>
+      </div>
+    
+      <div class="actions">
+        <%=form.submit%>
+      </div>
+     <% end %>
+<%else%>
+     <h2>Editing book</h2>
+     <%=form_with model: @book do |form| %>
+    
+      <div class="field">
+        <label for="book_title">Title</label><br>
+       <%=form.text_field :title,class:"book_title"%>
+      </div>
+    
+      <div class="field">
+        <label for="book_body">Body</label><br>
+       <%=form.text_area :body,class:"book_body"%>
+      </div>
+    
+      <div class="actions">
+        <%=form.submit%>
+      </div>
+     <% end %>
+<% end %>
+<div class="page_transition">
+    <%=link_to "Show",book_path(@book.id)%>
+    <div>|</div>
+    <%=link_to "Back",books_path%>
+</div>    
